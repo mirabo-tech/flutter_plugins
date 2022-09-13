@@ -125,11 +125,18 @@
 
     [_mapView addObserver:self forKeyPath:@"frame" options:0 context:nil];
   }
+
+  
   return self;
 }
 
-- (UIView *)view {
-  return self.mapView;
+// - (UIView *)view {
+//   return self.mapView;
+// }
+
+- (void)viewDidLoad {
+  mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  [self.view addSubview: self.mapView];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
